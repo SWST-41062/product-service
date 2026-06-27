@@ -33,4 +33,3 @@ Stop the system with `docker compose down`. Add `-v` only when you intentionally
 ```
 
 JaCoCo report: `target/site/jacoco/index.html`
-
