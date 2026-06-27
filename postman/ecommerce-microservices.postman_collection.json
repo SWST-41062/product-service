@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "E-commerce Microservices",
+    "description": "Required Product and Order Service workflow",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "productBaseUrl", "value": "http://localhost:8081" },
+    { "key": "orderBaseUrl", "value": "http://localhost:8082" },
+    { "key": "productId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1 - Create Product",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Product created', () => pm.response.to.have.status(201));",
+              "const body = pm.response.json();",
+              "pm.collectionVariables.set('productId', body.productId);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Keyboard\",\n  \"unitPrice\": 75.50\n}"
+        },
+        "url": "{{productBaseUrl}}/products"
+      }
+    },
+    {
+      "name": "2 - Get Product",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Product returned', () => pm.response.to.have.status(200));",
+              "pm.expect(pm.response.json().productId).to.eql(Number(pm.collectionVariables.get('productId')));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": "{{productBaseUrl}}/products/{{productId}}"
+      }
+    },
+    {
+      "name": "3 - Create Order",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Order created', () => pm.response.to.have.status(201));",
+              "pm.expect(pm.response.json().totalPrice).to.eql(151.00);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerId\": \"customer-1\",\n  \"productId\": {{productId}},\n  \"quantity\": 2\n}"
+        },
+        "url": "{{orderBaseUrl}}/orders"
+      }
+    },
+    {
+      "name": "4 - Delete Product (Optional Cleanup)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": ["pm.test('Product deleted', () => pm.response.to.have.status(204));"]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "url": "{{productBaseUrl}}/products/{{productId}}"
+      }
+    }
+  ]
+}
+
