@@ -10,7 +10,7 @@ Spring Boot service that owns product data and provides the required create, get
 | GET | `/products/{id}` | Get a product |
 | DELETE | `/products/{id}` | Delete a product |
 
-Swagger UI: `http://localhost:8081/swagger-ui.html`
+Swagger UI: `http://localhost:18081/swagger-ui.html`
 
 ## Run the complete local system
 
@@ -18,9 +18,10 @@ Keep `product-service`, `order-service`, and `notification-service` as sibling f
 
 ```bash
 cp .env.example .env
-docker compose up --build -d
-docker compose ps
+./build-and-run.sh
 ```
+
+The script builds the three tested JAR files, creates the Docker images, and starts the complete system.
 
 RabbitMQ UI: `http://localhost:15672`
 
