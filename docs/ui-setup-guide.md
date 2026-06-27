@@ -26,7 +26,7 @@ The second command should print nothing.
 
 1. Open <https://github.com/account/organizations/new?plan=free>.
 2. Choose **Create a free organization** if GitHub asks for a plan.
-3. Organization name: `swst-41062-ecommerce-2026`.
+3. Organization name: `SWST-41062`.
 4. Enter the contact email.
 5. Choose **My personal account** when asked who owns the organization.
 6. Complete the verification and create the organization.
@@ -103,7 +103,7 @@ Do this only after the GitHub organization and repositories exist.
 
 1. Open <https://sonarcloud.io> and sign in with GitHub.
 2. Click **Analyze new project**.
-3. Install/authorize the SonarQube Cloud GitHub application for `swst-41062-ecommerce-2026`.
+3. Install/authorize the SonarQube Cloud GitHub application for `SWST-41062`.
 4. Give it access to **Only select repositories → order-service**.
 5. Create/import the SonarQube Cloud organization using the free plan.
 6. Import only `order-service` as a project.

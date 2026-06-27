@@ -16,9 +16,9 @@ Local infrastructure and all three applications are started from Product Service
 
 ## 2. Repository Links
 
-- Product Service: `[add GitHub URL]`
-- Order Service: `[add GitHub URL]`
-- Notification Service: `[add GitHub URL]`
+- Product Service: <https://github.com/SWST-41062/product-service>
+- Order Service: <https://github.com/SWST-41062/order-service>
+- Notification Service: <https://github.com/SWST-41062/notification-service>
 
 ## 3. Local Development Evidence
 
