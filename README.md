@@ -57,3 +57,18 @@ The plan calls `GET /products/1` with 20 users, a 10-second ramp-up, and 5 loops
 ```
 
 JaCoCo report: `target/site/jacoco/index.html`
+
+## Public Docker image
+
+Docker Hub: <https://hub.docker.com/r/prabhathchathura/product-service>
+
+```bash
+docker pull prabhathchathura/product-service:1.0.0
+docker run --rm -p 18083:8081 \
+  -e DB_URL=jdbc:postgresql://host.docker.internal:5433/product_db \
+  -e DB_USERNAME=YOUR_DB_USERNAME \
+  -e DB_PASSWORD=YOUR_DB_PASSWORD \
+  prabhathchathura/product-service:1.0.0
+```
+
+The command assumes a PostgreSQL `product_db` is available on host port `5433`. Replace both credential placeholders with environment-specific values.

@@ -76,7 +76,10 @@ Add screenshots showing:
 
 ## 6. Docker Hub
 
-- Product image: `[add public Docker Hub URL]`
+- Product image: <https://hub.docker.com/r/prabhathchathura/product-service>
+- Published tags: `1.0.0` and `latest`.
+- Both tags use image digest `sha256:d52ae2696596bc1a6d096ebcf3b52d07e4ef6e80f46b0dc49c54e4b4ecb7669a`.
+- Verification: the public `1.0.0` image was pulled into a fresh container, connected to PostgreSQL, and served its OpenAPI endpoint successfully.
 
 Add screenshots of the local image, successful push, and public Docker Hub page.
 
