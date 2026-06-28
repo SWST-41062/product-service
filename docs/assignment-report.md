@@ -54,6 +54,19 @@ Verified locally on 2026-06-27: 100 successful samples, 0 errors, 8.08 ms averag
 
 ## 5. GitHub Actions and SonarCloud
 
+- Validation pull request: <https://github.com/SWST-41062/order-service/pull/1>
+- Successful post-merge workflow: <https://github.com/SWST-41062/order-service/actions/runs/28300288642>
+- SonarCloud dashboard: <https://sonarcloud.io/summary/overall?id=SWST-41062_order-service&branch=main>
+
+Verified results:
+
+- SonarCloud quality gate: Passed.
+- Coverage: 85.5%.
+- Bugs: 0.
+- Vulnerabilities: 0.
+- Duplicated lines: 0.0%.
+- GitHub protection requires the successful `Test, build, and analyze` check and one approval; administrators can bypass in an emergency.
+
 Add screenshots showing:
 
 1. The Order Service pull request.
